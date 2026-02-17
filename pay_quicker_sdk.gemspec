@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'pq-api-matic-sdk'
-  s.version = '1.0.2'
+  s.version = '1.0.3'
   s.summary = 'SDKs for PQ'
   s.description = 'SDKs  for PQ Apis'
   s.authors = ['Muhammad Rafay']
