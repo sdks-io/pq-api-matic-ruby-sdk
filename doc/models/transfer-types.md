@@ -1,0 +1,41 @@
+
+# Transfer Types
+
+[Transfer type](#/rest/models/structures/transfer-type)
+
+## Enumeration
+
+`TransferTypes`
+
+## Fields
+
+| Name |
+|  --- |
+| `ACCOUNT_TO_ACCOUNT_TRANSFER` |
+| `BANK_TRANSFER` |
+| `BANK_TRANSFER_RETURN` |
+| `BANK_TRANSFER_REVERSAL` |
+| `CANCELLED_PAYMENT` |
+| `CARD_PURCHASE` |
+| `CARD_PURCHASE_REFUND` |
+| `CASH_WITHDRAWAL` |
+| `DEPOSIT` |
+| `ESCHEATED_FUNDS_RETURN` |
+| `FEE` |
+| `FEE_REFUND` |
+| `PAPER_CHECK` |
+| `PAYMENT` |
+| `PAYMENT_RETRACTION` |
+| `PREPAID_CARD_LOAD` |
+| `PREPAID_CARD_UNLOAD` |
+| `PROVISIONAL_REFUND` |
+| `SPENDBACK` |
+| `SPENDBACK_RETURN` |
+| `ELECTRONIC_WALLET_TRANSFER` |
+
+## Example
+
+```
+ACCOUNT_TO_ACCOUNT_TRANSFER
+```
+

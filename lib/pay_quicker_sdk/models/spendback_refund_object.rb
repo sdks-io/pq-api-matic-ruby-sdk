@@ -1,0 +1,251 @@
+# pay_quicker_sdk
+#
+# This file was automatically generated for PayQuicker by
+# APIMATIC v3.0 ( https://www.apimatic.io ).
+
+require 'date'
+module PayQuickerSdk
+  # SpendbackRefundObject Model.
+  class SpendbackRefundObject < BaseModel
+    SKIP = Object.new
+    private_constant :SKIP
+
+    # [Token](#/rest/models/structures/token) representing the resource
+    # @return [String]
+    attr_accessor :token
+
+    # Reference ID in the PayQuicker Hosted Portal, if applicable.
+    # @return [String]
+    attr_accessor :portal_id
+
+    # Money to be refunded from original payment
+    # @return [Float]
+    attr_accessor :amount
+
+    # [Unique value](#/rest/models/structures/client-transfer-id) provided by
+    # the client for the transfer, utilized for reference and deduplication.
+    # @return [String]
+    attr_accessor :client_spendback_refund_id
+
+    # Time object was [created](#/rest/models/structures/created-on)
+    # @return [DateTime]
+    attr_accessor :created
+
+    # [Currency code type](#/rest/models/structures/country) for the object
+    # @return [Currencies]
+    attr_accessor :currency
+
+    # Optional internal [memo](#/rest/models/structures/memo) not visible to the
+    # user
+    # @return [String]
+    attr_accessor :memo
+
+    # [Optional comments](#/rest/models/structures/notes) visible to the user
+    # @return [String]
+    attr_accessor :note
+
+    # Unique identifier representing the [source of
+    # funds](#/rest/models/structures/source-token)
+    # @return [String]
+    attr_accessor :source_token
+
+    # Unique identifier representing the [destination of
+    # funds](#/rest/models/structures/destination-token)
+    # @return [String]
+    attr_accessor :destination_token
+
+    # [Program identifier](#/rest/models/structures/program-user-id) for the
+    # user
+    # @return [String]
+    attr_accessor :program_user_id
+
+    # Contact [email address](#/rest/models/structures/email-address) for the
+    # user account for the user account
+    # @return [String]
+    attr_accessor :email
+
+    # Current status of a [transfer](#/rest/models/structures/transfer)
+    # @return [TransferStatuses]
+    attr_accessor :status
+
+    # Auto-generated unique identifier representing a receipt, prefixed with
+    # `rcpt-`.
+    # @return [String]
+    attr_accessor :receipt_token
+
+    # Auto-generated unique identifier representing a receipt, prefixed with
+    # `rcpt-`.
+    # @return [Array[HateoasSelfRef]]
+    attr_accessor :links
+
+    # A mapping from model property names to API property names.
+    def self.names
+      @_hash = {} if @_hash.nil?
+      @_hash['token'] = 'token'
+      @_hash['portal_id'] = 'portalId'
+      @_hash['amount'] = 'amount'
+      @_hash['client_spendback_refund_id'] = 'clientSpendbackRefundId'
+      @_hash['created'] = 'created'
+      @_hash['currency'] = 'currency'
+      @_hash['memo'] = 'memo'
+      @_hash['note'] = 'note'
+      @_hash['source_token'] = 'sourceToken'
+      @_hash['destination_token'] = 'destinationToken'
+      @_hash['program_user_id'] = 'programUserId'
+      @_hash['email'] = 'email'
+      @_hash['status'] = 'status'
+      @_hash['receipt_token'] = 'receiptToken'
+      @_hash['links'] = 'links'
+      @_hash
+    end
+
+    # An array for optional fields
+    def self.optionals
+      %w[
+        token
+        portal_id
+        amount
+        client_spendback_refund_id
+        created
+        currency
+        memo
+        note
+        source_token
+        destination_token
+        program_user_id
+        email
+        status
+        receipt_token
+        links
+      ]
+    end
+
+    # An array for nullable fields
+    def self.nullables
+      []
+    end
+
+    def initialize(
+      token = SKIP, portal_id = SKIP, amount = SKIP,
+      client_spendback_refund_id = SKIP, created = SKIP,
+      currency = Currencies::USD, memo = SKIP, note = SKIP,
+      source_token = 'acct-3908ab5a-6ce1-474d-8b80-a63a7b147860',
+      destination_token = 'dest-631b200f-665d-4dbe-bd01-3063c9dec97d',
+      program_user_id = SKIP, email = SKIP, status = SKIP,
+      receipt_token = 'rcpt-b7fda294-8d3a-48e8-9a11-ef7be07a732c', links = SKIP,
+      additional_properties = {}
+    )
+      # Add additional model properties to the instance.
+      additional_properties.each do |_name, _value|
+        instance_variable_set("@#{_name}", _value)
+      end
+
+      @token = token unless token == SKIP
+      @portal_id = portal_id unless portal_id == SKIP
+      @amount = amount unless amount == SKIP
+      unless client_spendback_refund_id == SKIP
+        @client_spendback_refund_id =
+          client_spendback_refund_id
+      end
+      @created = created unless created == SKIP
+      @currency = currency unless currency == SKIP
+      @memo = memo unless memo == SKIP
+      @note = note unless note == SKIP
+      @source_token = source_token unless source_token == SKIP
+      @destination_token = destination_token unless destination_token == SKIP
+      @program_user_id = program_user_id unless program_user_id == SKIP
+      @email = email unless email == SKIP
+      @status = status unless status == SKIP
+      @receipt_token = receipt_token unless receipt_token == SKIP
+      @links = links unless links == SKIP
+    end
+
+    # Creates an instance of the object from a hash.
+    def self.from_hash(hash)
+      return nil unless hash
+
+      # Extract variables from the hash.
+      token = hash.key?('token') ? hash['token'] : SKIP
+      portal_id = hash.key?('portalId') ? hash['portalId'] : SKIP
+      amount = hash.key?('amount') ? hash['amount'] : SKIP
+      client_spendback_refund_id =
+        hash.key?('clientSpendbackRefundId') ? hash['clientSpendbackRefundId'] : SKIP
+      created = if hash.key?('created')
+                  (DateTimeHelper.from_rfc3339(hash['created']) if hash['created'])
+                else
+                  SKIP
+                end
+      currency = hash['currency'] ||= Currencies::USD
+      memo = hash.key?('memo') ? hash['memo'] : SKIP
+      note = hash.key?('note') ? hash['note'] : SKIP
+      source_token =
+        hash['sourceToken'] ||= 'acct-3908ab5a-6ce1-474d-8b80-a63a7b147860'
+      destination_token =
+        hash['destinationToken'] ||= 'dest-631b200f-665d-4dbe-bd01-3063c9dec97d'
+      program_user_id =
+        hash.key?('programUserId') ? hash['programUserId'] : SKIP
+      email = hash.key?('email') ? hash['email'] : SKIP
+      status = hash.key?('status') ? hash['status'] : SKIP
+      receipt_token =
+        hash['receiptToken'] ||= 'rcpt-b7fda294-8d3a-48e8-9a11-ef7be07a732c'
+      # Parameter is an array, so we need to iterate through it
+      links = nil
+      unless hash['links'].nil?
+        links = []
+        hash['links'].each do |structure|
+          links << (HateoasSelfRef.from_hash(structure) if structure)
+        end
+      end
+
+      links = SKIP unless hash.key?('links')
+
+      # Clean out expected properties from Hash.
+      additional_properties = hash.reject { |k, _| names.value?(k) }
+
+      # Create object from extracted values.
+      SpendbackRefundObject.new(token,
+                                portal_id,
+                                amount,
+                                client_spendback_refund_id,
+                                created,
+                                currency,
+                                memo,
+                                note,
+                                source_token,
+                                destination_token,
+                                program_user_id,
+                                email,
+                                status,
+                                receipt_token,
+                                links,
+                                additional_properties)
+    end
+
+    def to_custom_created
+      DateTimeHelper.to_rfc3339(created)
+    end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} token: #{@token}, portal_id: #{@portal_id}, amount: #{@amount},"\
+      " client_spendback_refund_id: #{@client_spendback_refund_id}, created: #{@created},"\
+      " currency: #{@currency}, memo: #{@memo}, note: #{@note}, source_token: #{@source_token},"\
+      " destination_token: #{@destination_token}, program_user_id: #{@program_user_id}, email:"\
+      " #{@email}, status: #{@status}, receipt_token: #{@receipt_token}, links: #{@links},"\
+      " additional_properties: #{get_additional_properties}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} token: #{@token.inspect}, portal_id: #{@portal_id.inspect}, amount:"\
+      " #{@amount.inspect}, client_spendback_refund_id: #{@client_spendback_refund_id.inspect},"\
+      " created: #{@created.inspect}, currency: #{@currency.inspect}, memo: #{@memo.inspect},"\
+      " note: #{@note.inspect}, source_token: #{@source_token.inspect}, destination_token:"\
+      " #{@destination_token.inspect}, program_user_id: #{@program_user_id.inspect}, email:"\
+      " #{@email.inspect}, status: #{@status.inspect}, receipt_token: #{@receipt_token.inspect},"\
+      " links: #{@links.inspect}, additional_properties: #{get_additional_properties}>"
+    end
+  end
+end
